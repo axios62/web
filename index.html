@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E.Analytics</title>
     <link rel="icon" type="image/svg+xml"
-        href="https://github.com/eanalytics26/assets/blob/main/icon/favicon.svg?raw=true" />
+        href="https://github.com/eanalytics26/assets/blob/main/icon/faviconcircle.svg?raw=true" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-1 cursor-pointer">
                 <span class="font-bold text-lg tracking-tighter flex items-center gap-1">
-                    <img width="15%" src="https://github.com/eanalytics26/assets/blob/main/icon/ea2_slim.svg?raw=true">
+                    <img width="15%" src="https://github.com/eanalytics26/assets/blob/main/icon/ea1slim.svg?raw=true">
                     <span class="text-xs font-normal bg-yt-pill px-1.5 py-0.5 rounded text-yt-secondary">2026</span>
                 </span>
             </div>
@@ -80,12 +80,8 @@
         <!-- Direita: Ações do Usuário -->
         <div class="flex items-center gap-2">
             <div class="flex items-center gap-2 ml-2 pl-2 border-l border-yt-border">
-                <a href="https://linkedin.com/in/lucasoal" target="_blank">
-                    <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1280px-LinkedIn_icon.svg.png"
-                        class="w-8 h-8 rounded-full object-cover cursor-pointer hover:ring-2 hover:ring-blue-500">
-                </a>
                 <a href="https://github.com/lucasoal" target="_blank">
-                    <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Github_logo_svg.svg/1280px-Github_logo_svg.svg.png"
+                    <img src="https://avatars.githubusercontent.com/u/9919"
                         class="w-8 h-8 rounded-full object-cover cursor-pointer hover:ring-2 hover:ring-blue-500">
                 </a>
             </div>
@@ -114,12 +110,29 @@
 
                 <!-- BARRA DE AÇÕES ESTILO YOUTUBE -->
                 <div class="flex flex-wrap items-center justify-between gap-4 mt-3 pb-3 border-b border-yt-border/40">
+                    <!-- Informações do Autor / Canal -->
+                    <div class="flex items-center gap-3">
+                        <a href="https://linkedin.com/in/lucasoal" target="_blank">
+                            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1280px-LinkedIn_icon.svg.png"
+                                class="w-10 h-10 rounded-full object-cover cursor-pointer hover:opacity-80 transition">
+                        </a>
+                        <div class="flex flex-col">
+                            <a href="https://linkedin.com/in/lucasoal" target="_blank"
+                                class="font-bold text-sm text-yt-text hover:underline flex items-center gap-1">
+                                Lucas Leal
+                                <i class="fa-solid fa-circle-check text-xs text-yt-secondary"></i>
+                            </a>
+                            <span class="text-xs text-yt-secondary">@lucasoal</span>
+                        </div>
+                    </div>
+
                     <!-- Botões de Interação Estilo Pill -->
                     <div class="flex items-center gap-2 flex-wrap">
                         <!-- Compartilhar -->
-                        <button class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition">
+                        <button onclick="shareLink()"
+                            class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
                             <i class="fa-solid fa-share text-sm"></i>
-                            <span>Compartilhar</span>
+                            <span id="shareBtnText">Compartilhar</span>
                         </button>
                     </div>
                 </div>
@@ -206,6 +219,42 @@
     </div>
 
     <script>
+        async function shareLink() {
+            const shareData = {
+                title: 'E.Analytics | 2026 | Brazil Federal Elections',
+                text: 'Confira este dashboard no E.Analytics',
+                url: window.location.href
+            };
+
+            const shareBtnText = document.getElementById('shareBtnText');
+
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (err) {
+                    if (err.name !== 'AbortError') {
+                        copyToClipboard();
+                    }
+                }
+            } else {
+                copyToClipboard();
+            }
+
+            function copyToClipboard() {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    if (shareBtnText) {
+                        const originalText = shareBtnText.textContent;
+                        shareBtnText.textContent = 'Link copiado!';
+                        setTimeout(() => {
+                            shareBtnText.textContent = originalText;
+                        }, 2000);
+                    }
+                }).catch(() => {
+                    alert('Link da página: ' + window.location.href);
+                });
+            }
+        }
+
         function toggleDescription(event) {
             if (event && event.target.tagName === 'A') {
                 return;
