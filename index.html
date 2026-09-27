@@ -21,15 +21,16 @@
                     },
                     colors: {
                         yt: {
-                            bg: '#ffffff',          // Fundo principal branco
-                            card: '#f2f2f2',        // Cards e caixas em cinza muito claro
-                            hover: '#e5e5e5',       // Efeito de hover suave
-                            text: '#0f0f0f',        // Texto principal quase preto
-                            secondary: '#606060',   // Texto secundário e ícones
-                            border: '#e5e5e5',      // Bordas discretas
-                            accent: '#ff0000',      // Vermelho característico
-                            pill: '#0000000d',      // Botões pill com transparência (5% preto)
-                            pillHover: '#0000001a'  // Hover dos botões pill (10% preto)
+                            headerBg: '#0f0f0f',     // Cor escura para o Header
+                            bg: '#ffffff',
+                            card: '#f2f2f2',
+                            hover: '#e5e5e5',
+                            text: '#0f0f0f',
+                            secondary: '#606060',
+                            border: '#383838',      // Borda escura para o Header
+                            accent: '#ff0000',
+                            pill: '#ffffff1a',
+                            pillHover: '#ffffff33'
                         }
                     }
                 }
@@ -65,14 +66,15 @@
 
 <body class="h-screen w-screen flex flex-col overflow-hidden bg-yt-bg text-yt-text select-none">
 
-    <!-- HEADER / BARRA SUPERIOR -->
-    <header class="h-14 px-4 flex items-center justify-between bg-yt-bg z-50 shrink-0 border-b border-yt-border/30">
+    <!-- HEADER / BARRA SUPERIOR (ESCURA) -->
+    <header
+        class="h-14 px-4 flex items-center justify-between bg-yt-headerBg text-white z-50 shrink-0 border-b border-yt-border">
         <!-- Esquerda: Menu + Logo -->
         <div class="flex items-center gap-4">
             <div class="flex items-center gap-1 cursor-pointer">
                 <span class="font-bold text-lg tracking-tighter flex items-center gap-1">
                     <img width="15%" src="https://github.com/eanalytics26/assets/blob/main/icon/ea1slim.svg?raw=true">
-                    <span class="text-xs font-normal bg-yt-pill px-1.5 py-0.5 rounded text-yt-secondary">2026</span>
+                    <span class="text-xs font-normal bg-yt-pill px-1.5 py-0.5 rounded text-gray-300">2026</span>
                 </span>
             </div>
         </div>
@@ -81,7 +83,7 @@
         <div class="flex items-center gap-2">
             <div class="flex items-center gap-2 ml-2 pl-2 border-l border-yt-border">
                 <a href="https://github.com/lucasoal" target="_blank">
-                    <img src="https://avatars.githubusercontent.com/u/9919"
+                    <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Github_logo_svg.svg/1280px-Github_logo_svg.svg.png"
                         class="w-8 h-8 rounded-full object-cover cursor-pointer hover:ring-2 hover:ring-blue-500">
                 </a>
             </div>
@@ -89,12 +91,13 @@
     </header>
 
     <!-- ÁREA PRINCIPAL DA PÁGINA (VIEWPORT FIXA COM 2 COLUNAS) -->
-    <main class="flex-1 flex overflow-hidden p-4 lg:p-2 gap-6 max-w-[1240px] mx-auto w-full">
+    <main class="flex-1 flex overflow-hidden p-4 lg:p-6 gap-6 max-w-[1600px] mx-auto w-full">
         <!-- COLUNA ESQUERDA: POWER BI + DETALHES -->
         <div class="flex-1 flex flex-col min-w-0 overflow-y-auto pr-2 custom-scroll">
 
             <!-- CONTAINER DO IFRAME DO POWER BI -->
-            <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative border border-yt-border/50 group shrink-0">
+            <div
+                class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative border border-yt-border/50 group shrink-0">
                 <!-- <iframe 
                     src="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
                     id="powerbi-frame" class="w-full h-[calc(100%+36px)] border-0 -mb-[36px]" allowFullScreen="true">
@@ -130,9 +133,9 @@
                     <div class="flex items-center gap-2 flex-wrap">
                         <!-- Compartilhar -->
                         <button onclick="shareLink()"
-                            class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
+                            class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-yt-text px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
                             <i class="fa-solid fa-share text-sm"></i>
-                            <span id="shareBtnText">Compartilhar</span>
+                            <span id="shareBtnText">Share</span>
                         </button>
                     </div>
                 </div>
@@ -170,31 +173,53 @@
         </div>
 
         <!-- COLUNA DIREITA: CARDS INFORMACIONAIS -->
-        <!-- <aside class="w-[360px] xl:w-[300px] shrink-0 h-full overflow-y-auto flex flex-col gap-3 pl-1 pr-1">
+        <aside class="w-[300px] xl:w-[400px] shrink-0 h-full overflow-y-auto flex flex-col gap-3 pl-1 pr-1">
 
             <div class="flex items-center gap-2 overflow-x-auto pb-2 shrink-0 scrollbar-none text-xs">
-                <button class="bg-white text-black px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">Tudo</button>
-                <button
-                    class="bg-yt-pill hover:bg-yt-pillHover text-yt-text px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">Política</button>
+                <button class="bg-white text-black px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">Projects</button>
+                <!-- <button class="bg-yt-pill hover:bg-yt-pillHover text-yt-text px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">Política</button> -->
             </div>
 
-            <div class="flex gap-2 p-1.5 rounded-xl hover:bg-yt-card/50 transition cursor-pointer group">
+            <a class="flex gap-2 p-1.5 rounded-xl hover:bg-yt-card/50 transition cursor-pointer group"
+                href="https://pypi.org/project/igmapper/" target="_blank">
+
                 <div class="w-36 h-20 rounded-lg overflow-hidden shrink-0 bg-yt-card relative">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&auto=format&fit=crop&q=80"
+                    <img src="https://github.com/lucasoal/igmapper/raw/main/assets/banner.png?raw=true"
                         class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">12
-                        KPIs</span>
+                    <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">
+                        1K downloads
+                    </span>
                 </div>
                 <div class="flex flex-col justify-start flex-1 min-w-0">
                     <h4 class="text-xs font-semibold text-yt-text line-clamp-2 leading-tight group-hover:text-blue-400">
-                        Painel Metas Comerciais por Vendedor & Região
+                        Igmapper
                     </h4>
-                    <span class="text-[11px] text-yt-secondary mt-1">Equipe de Vendas <i
+                    <span class="text-[11px] text-yt-secondary mt-1">Python Library <i
                             class="fa-solid fa-circle-check text-[10px]"></i></span>
-                    <span class="text-[11px] text-yt-secondary">2.4k visualizações • há 2 dias</span>
+                    <span class="text-[11px] text-yt-secondary">1k downloads • month</span>
                 </div>
-            </div>
-        </aside> -->
+            </a>
+
+            <a class="flex gap-2 p-1.5 rounded-xl hover:bg-yt-card/50 transition cursor-pointer group"
+                href="https://pypi.org/project/quati/" target="_blank">
+
+                <div class="w-36 h-20 rounded-lg overflow-hidden shrink-0 bg-yt-card relative">
+                    <img src="https://github.com/quati-dev/quati/raw/main/assets/banner.png?raw=true"
+                        class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] px-1 rounded">
+                        250 downloads
+                    </span>
+                </div>
+                <div class="flex flex-col justify-start flex-1 min-w-0">
+                    <h4 class="text-xs font-semibold text-yt-text line-clamp-2 leading-tight group-hover:text-blue-400">
+                        Quati
+                    </h4>
+                    <span class="text-[11px] text-yt-secondary mt-1">Python Library <i
+                            class="fa-solid fa-circle-check text-[10px]"></i></span>
+                    <span class="text-[11px] text-yt-secondary">250 downloads • month</span>
+                </div>
+            </a>
+        </aside>
 
     </main>
 
@@ -222,7 +247,7 @@
         async function shareLink() {
             const shareData = {
                 title: 'E.Analytics | 2026 | Brazil Federal Elections',
-                text: 'Confira este dashboard no E.Analytics',
+                text: 'Check out this dashboard on E.Analytics',
                 url: window.location.href
             };
 
@@ -244,13 +269,13 @@
                 navigator.clipboard.writeText(window.location.href).then(() => {
                     if (shareBtnText) {
                         const originalText = shareBtnText.textContent;
-                        shareBtnText.textContent = 'Link copiado!';
+                        shareBtnText.textContent = 'Link copied!';
                         setTimeout(() => {
                             shareBtnText.textContent = originalText;
                         }, 2000);
                     }
                 }).catch(() => {
-                    alert('Link da página: ' + window.location.href);
+                    alert('Page link: ' + window.location.href);
                 });
             }
         }
