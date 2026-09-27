@@ -21,15 +21,15 @@
                     },
                     colors: {
                         yt: {
-                            bg: '#000',
-                            card: '#272727',
-                            hover: '#3f3f3f',
-                            text: '#f1f1f1',
-                            secondary: '#aaaaaa',
-                            border: '#383838',
-                            accent: '#ff0000',
-                            pill: '#ffffff1a',
-                            pillHover: '#ffffff33'
+                            bg: '#ffffff',          // Fundo principal branco
+                            card: '#f2f2f2',        // Cards e caixas em cinza muito claro
+                            hover: '#e5e5e5',       // Efeito de hover suave
+                            text: '#0f0f0f',        // Texto principal quase preto
+                            secondary: '#606060',   // Texto secundário e ícones
+                            border: '#e5e5e5',      // Bordas discretas
+                            accent: '#ff0000',      // Vermelho característico
+                            pill: '#0000000d',      // Botões pill com transparência (5% preto)
+                            pillHover: '#0000001a'  // Hover dos botões pill (10% preto)
                         }
                     }
                 }
@@ -99,12 +99,10 @@
 
             <!-- CONTAINER DO IFRAME DO POWER BI -->
             <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative border border-yt-border/50 group shrink-0">
-                <iframe
+                <!-- <iframe 
                     src="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
-                    id="powerbi-frame" 
-                    class="w-full h-[calc(100%+36px)] border-0 -mb-[36px]" 
-                    allowFullScreen="true">
-                </iframe>
+                    id="powerbi-frame" class="w-full h-[calc(100%+36px)] border-0 -mb-[36px]" allowFullScreen="true">
+                </iframe> -->
             </div>
 
             <!-- ÁREA DE CONTEÚDO ABAIXO DO VÍDEO (GARANTE EXIBIÇÃO EM QUALQUER RESOLUÇÃO) -->
@@ -119,11 +117,10 @@
                     <!-- Botões de Interação Estilo Pill -->
                     <div class="flex items-center gap-2 flex-wrap">
                         <!-- Compartilhar -->
-                        <!-- <button
-                            class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition">
+                        <button class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition">
                             <i class="fa-solid fa-share text-sm"></i>
                             <span>Compartilhar</span>
-                        </button> -->
+                        </button>
                     </div>
                 </div>
 
@@ -143,9 +140,9 @@
                         <br>
                         Data Sources: TSE • TRE • IBGE • Instagram <br>
                         <br>
-                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9" 
-                           target="_blank" class="text-blue-400 hover:underline" onclick="event.stopPropagation()">
-                           Power BI | E.Analytics
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
+                            target="_blank" class="text-blue-400 hover:underline" onclick="event.stopPropagation()">
+                            Power BI | E.Analytics
                         </a>
                         <br>
                         <br>
