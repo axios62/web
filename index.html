@@ -93,38 +93,37 @@
     </header>
 
     <!-- ÁREA PRINCIPAL DA PÁGINA (VIEWPORT FIXA COM 2 COLUNAS) -->
-    <!-- <main class="flex-1 flex overflow-hidden p-4 lg:p-6 gap-6 max-w-[1235px] mx-auto w-full"> -->
-    <main class="flex-1 flex overflow-hidden p-4 lg:p-6 gap-6 max-w-[1497px] mx-auto w-full">
-
+    <main class="flex-1 flex overflow-hidden p-4 lg:p-2 gap-6 max-w-[1240px] mx-auto w-full">
         <!-- COLUNA ESQUERDA: POWER BI + DETALHES -->
         <div class="flex-1 flex flex-col min-w-0 overflow-y-auto pr-2 custom-scroll">
 
             <!-- CONTAINER DO IFRAME DO POWER BI -->
-            <div
-                class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative border border-yt-border/50 group shrink-0">
+            <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative border border-yt-border/50 group shrink-0">
                 <iframe
                     src="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
-                    id="powerbi-frame" class="w-full h-full border-0" allowFullScreen="true">
+                    id="powerbi-frame" 
+                    class="w-full h-[calc(100%+36px)] border-0 -mb-[36px]" 
+                    allowFullScreen="true">
                 </iframe>
             </div>
 
             <!-- ÁREA DE CONTEÚDO ABAIXO DO VÍDEO (GARANTE EXIBIÇÃO EM QUALQUER RESOLUÇÃO) -->
             <div class="flex flex-col shrink-0 mt-3">
                 <!-- TÍTULO DO DASHBOARD -->
-                <h1 class="text-lg lg:text-xl font-bold text-yt-text block">
+                <p class="text-lg lg:text-xl font-bold text-yt-text block">
                     E.Analytics | 2026 | Brazil Federal Elections
-                </h1>
+                </p>
 
                 <!-- BARRA DE AÇÕES ESTILO YOUTUBE -->
                 <div class="flex flex-wrap items-center justify-between gap-4 mt-3 pb-3 border-b border-yt-border/40">
                     <!-- Botões de Interação Estilo Pill -->
                     <div class="flex items-center gap-2 flex-wrap">
                         <!-- Compartilhar -->
-                        <button
+                        <!-- <button
                             class="flex items-center gap-2 bg-yt-pill hover:bg-yt-pillHover px-3 py-2 rounded-full text-xs font-medium transition">
                             <i class="fa-solid fa-share text-sm"></i>
                             <span>Compartilhar</span>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
@@ -134,7 +133,7 @@
                     <div class="flex gap-3 font-semibold text-yt-text mb-1">
                         <span>Release: 06/2026</span>
                         <span>Daily update</span>
-                        <span class="text-yt-secondary">#PowerBI #E.Analytics</span>
+                        <span class="text-yt-secondary">#PowerBI #Python #E.Analytics #Brazil #FederalElections</span>
                     </div>
                     <p class="text-yt-text/90 line-clamp-2" id="descText">
                         Electoral Campaign Map Platform <br>
@@ -146,7 +145,7 @@
                         <br>
                         <a href="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9" 
                            target="_blank" class="text-blue-400 hover:underline" onclick="event.stopPropagation()">
-                           https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9
+                           Power BI | E.Analytics
                         </a>
                         <br>
                         <br>
@@ -161,7 +160,7 @@
         </div>
 
         <!-- COLUNA DIREITA: CARDS INFORMACIONAIS -->
-        <aside class="w-[360px] xl:w-[300px] shrink-0 h-full overflow-y-auto flex flex-col gap-3 pl-1 pr-1">
+        <!-- <aside class="w-[360px] xl:w-[300px] shrink-0 h-full overflow-y-auto flex flex-col gap-3 pl-1 pr-1">
 
             <div class="flex items-center gap-2 overflow-x-auto pb-2 shrink-0 scrollbar-none text-xs">
                 <button class="bg-white text-black px-3 py-1.5 rounded-lg font-medium whitespace-nowrap">Tudo</button>
@@ -185,7 +184,7 @@
                     <span class="text-[11px] text-yt-secondary">2.4k visualizações • há 2 dias</span>
                 </div>
             </div>
-        </aside>
+        </aside> -->
 
     </main>
 
