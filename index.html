@@ -21,16 +21,19 @@
                     },
                     colors: {
                         yt: {
-                            headerBg: '#0f0f0f',
-                            bg: '#ffffff',
-                            card: '#f2f2f2',
-                            hover: '#e5e5e5',
-                            text: '#0f0f0f',
-                            secondary: '#606060',
+                            headerBg: '#0E0E0E',
+                            bg: '#030303',
+                            card: '#2A2A2A',
+                            cardHover: '#0A2036',
+                            cardHoverAlert: '#FF0000',
+                            text: '#FFF',
+                            secondary: '#ABABAB',
                             border: '#383838',
                             accent: '#ff0000',
                             pill: '#ffffff1a',
-                            pillHover: '#ffffff33'
+                            pillHover: '#ffffff33',
+                            button: '#232323',
+                            buttonHover: '#434343'
                         }
                     }
                 }
@@ -116,12 +119,12 @@
 
                 <!-- CONTAINER DO IFRAME DO POWER BI -->
                 <div
-                    class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-xl relative border border-yt-border/1000 group shrink-0">
-                    <iframe
+                    class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-xl relative border border-yt-border/100 group shrink-0">
+                    <!-- <iframe
                         src="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
                         id="powerbi-frame" class="w-full h-[calc(100%+36px)] border-0 -mb-[36px]"
                         allowFullScreen="true">
-                    </iframe>
+                    </iframe> -->
                 </div>
 
                 <!-- ÁREA DE CONTEÚDO ABAIXO DO VÍDEO -->
@@ -154,30 +157,45 @@
                         <div class="flex items-center gap-2 flex-wrap">
                             <!-- Compartilhar -->
                             <button onclick="shareLink()"
-                                class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-yt-text px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
-                                <i class="fa-solid fa-share text-sm"></i>
+                                class="flex items-center gap-2 bg-yt-button/100 hover:bg-yt-buttonHover/100 text-yt-text border border-yt-border/100 px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
+                                <i class="fa fa-share text-sm"></i>
                                 <span id="shareBtnText">Share</span>
                             </button>
+                            <!-- <button onclick="_____()"
+                                class="flex items-center gap-2 bg-yt-button/100 hover:bg-yt-buttonHover/100 text-yt-text border border-yt-border/100 px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
+                                <i class="fa fa-bookmark text-sm"></i>
+                                <span id="shareBtnText">Bookmark</span>
+                            </button> -->
+                            <!-- <button onclick="_____()"
+                                class="flex items-center gap-2 bg-yt-button/100 hover:bg-yt-buttonHover/100 text-yt-text border border-yt-border/100 px-3 py-2 rounded-full text-xs font-medium transition active:scale-95">
+                                <i class="fa-solid fa-ellipsis-h text-sm"></i>
+                            </button> -->
                         </div>
                     </div>
 
                     <!-- CAIXA DE DESCRIÇÃO -->
-                    <div class="mt-3 p-3 bg-yt-card/60 hover:bg-yt-card/90 rounded-xl transition text-xs leading-relaxed cursor-pointer"
+                    <div class="mt-3 p-3 bg-yt-card/100 hover:bg-yt-cardHover/100 rounded-xl transition text-xs leading-relaxed cursor-pointer"
                         id="descBox" onclick="toggleDescription(event)">
-                        <div class="flex gap-3 font-semibold text-yt-text mb-1">
+                        <div class="flex gap-1 font-semibold text-yt-text mb-1">
                             <span>Release: 06/2026</span>
                             <span>Daily update</span>
-                            <span class="text-yt-secondary">#PowerBI #Python #E.Analytics #Brazil
-                                #FederalElections</span>
+                            •
+                            <a class="hover:underline" href="#">#PowerBI</a>
+                            <a class="hover:underline" href="#">#Python</a>
+                            <a class="hover:underline" href="#">#E.Analytics</a>
+                            <a class="hover:underline" href="#">#Brazil</a>
+                            <a class="hover:underline" href="#">#FederalElections</a>
                         </div>
                         <p class="text-yt-text/90 line-clamp-2" id="descText">
-                            Electoral Campaign Map Platform <br>
-                            Tracking campaign communication style: analysis based on Bourdieu's theory of social fields
-                            and
-                            demographic data <br>
-                            Lucas Leal <br>
+                            Electoral Campaign Map Platform: 
+                            Tracking campaign communication style: analysis based social media and demographic data.<br>
+                            by Lucas Leal <br>
                             <br>
-                            Data Sources: TSE • TRE • IBGE • Instagram <br>
+                            Data Sources <br>
+                            TSE/AGEL - Candidatos/Resultados | 2020, 2022, 2024; <br>
+                            TSE/AGEL - Candidatos | 2026; <br>
+                            IBGE - Censo | 2022; <br>
+                            Instagram - Profile/Posts | 16/Ago ~ 04/Out de 2026.<br>
                             <br>
                             <a href="https://app.powerbi.com/view?r=eyJrIjoiMGNiNGI5ZWItNzBkYS00NmUwLWEzNmQtZmZmZjRiMDE0OGNhIiwidCI6ImQ4ZTNmYTEzLTlkZGItNGNjNS04YTJhLWY1NjQ5OWYxNGUyNSJ9"
                                 target="_blank" class="text-blue-400 hover:underline" onclick="event.stopPropagation()">
